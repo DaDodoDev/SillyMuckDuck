@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 715183119}
   - component: {fileID: 715183121}
   - component: {fileID: 715183120}
+  - component: {fileID: 715183122}
   m_Layer: 0
   m_Name: and
   m_TagString: Untagged
@@ -646,7 +647,8 @@ Transform:
   m_LocalPosition: {x: -1.004684, y: 0.03020378, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 744027608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &715183115
@@ -700,9 +702,9 @@ MonoBehaviour:
   isDashing: 0
   DashTime: 0.1
   NumberOfDashes: 0
-  maxHealth: 0
+  maxHealth: 100
   health: 0
-  healthBarScript: {fileID: 0}
+  healthBar: {fileID: 2128921645}
 --- !u!95 &715183119
 Animator:
   serializedVersion: 5
@@ -756,8 +758,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_Size: {x: 0.5, y: 0.75}
+  m_Offset: {x: 0, y: -0.02}
+  m_Size: {x: 0.5, y: 0.76}
   m_Direction: 0
 --- !u!70 &715183121
 CapsuleCollider2D:
@@ -794,6 +796,74 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6, y: 0.75}
   m_Direction: 0
+--- !u!114 &715183122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715183112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8d92ddf6a4b6241888bf227d6296c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatWeapon: 1
+  timeBTWAttacks: 0
+  timeBTWAttacksNow: 0
+  timeBTWSecondsAttacks: 0
+  timeBTWSecondsAttacksNow: 0
+  sword: {fileID: 2434748041961949062, guid: 4c27fc015385eb54c9061b3fbe13648b, type: 3}
+--- !u!1 &744027607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744027608}
+  - component: {fileID: 744027609}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744027608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744027607}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 715183114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744027609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744027607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8d92ddf6a4b6241888bf227d6296c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatWeapon: 0
+  timeBTWAttacks: 0
+  timeBTWAttacksNow: 0
+  timeBTWSecondsAttacks: 0
+  timeBTWSecondsAttacksNow: 0
+  sword: {fileID: 0}
 --- !u!1 &1709384206
 GameObject:
   m_ObjectHideFlags: 0
