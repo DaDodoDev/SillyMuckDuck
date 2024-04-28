@@ -21,10 +21,17 @@ public class And : MonoBehaviour
 
     public int maxHealth;
     public int health;
+
+
+    public GameObject healthBar;
     // Start is called before the first frame update
     void Start()
     {
         gravityNorm = rb.gravityScale;
+        healthBar.GetComponent<healthBarScript>().SetMaxHealth(maxHealth);
+        health = maxHealth;
+        healthBar.GetComponent<healthBarScript>().SetHealth(health);
+
     }
 
     // Update is called once per frame
@@ -54,7 +61,7 @@ public class And : MonoBehaviour
         }
         else { dashTimeNow -= Time.deltaTime; if (dashTimeNow < 0) { isDashing = false; }  }
 
-        
+        if (Input.GetKeyDown("o")) { TakeDamage(5); }
     }
 
     void FixedUpdate()
@@ -62,9 +69,18 @@ public class And : MonoBehaviour
         speedNow *= speedDecay;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         jumps = 2;
         NumberOfDashes = 1;
     }
+
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        healthBar.GetComponent<healthBarScript>().SetHealth(health);
+    }
+
+    
 }

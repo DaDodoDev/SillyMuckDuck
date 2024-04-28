@@ -15,7 +15,7 @@ public class cameraScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        andPos = new Vector2(and.transform.position.x + and.GetComponent<And>().speedNow * 0.2f, and.transform.position.y);
+        andPos = new Vector2(and.transform.position.x + and.GetComponent<Rigidbody2D>().velocity.x * .3f, and.transform.position.y);
         transform.position = Vector2.Lerp(transform.position, andPos, 0.1f);
         transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
