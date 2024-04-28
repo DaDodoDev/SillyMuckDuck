@@ -17,6 +17,10 @@ public class And : MonoBehaviour
     public bool isDashing;
     public float DashTime;
     float dashTimeNow;
+    public int NumberOfDashes;
+
+    public int maxHealth;
+    public int health;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +42,14 @@ public class And : MonoBehaviour
 
             if (whatDirection * 1 == Input.GetAxisRaw("Horizontal")) { whatDirection *= -1; }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            transform.localScale = new Vector2(-1 * whatDirection, 1);
+            if (Input.GetKeyDown(KeyCode.LeftShift) && NumberOfDashes > 0)
             {
                 isDashing = true;
                 dashTimeNow = DashTime;
                 rb.gravityScale = 0;
                 rb.velocity = new Vector2(dashPower * whatDirection * -1, 0);
+                NumberOfDashes--;
             }
         }
         else { dashTimeNow -= Time.deltaTime; if (dashTimeNow < 0) { isDashing = false; }  }
@@ -59,5 +65,6 @@ public class And : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         jumps = 2;
+        NumberOfDashes = 1;
     }
 }
