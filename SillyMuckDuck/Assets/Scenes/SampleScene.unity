@@ -695,7 +695,7 @@ MonoBehaviour:
   speedDecay: 0.7
   rb: {fileID: 715183115}
   jumps: 0
-  jumpPower: 12
+  jumpPower: 13
   minFallSpeed: -2
   dashPower: 20
   whatDirection: 1
