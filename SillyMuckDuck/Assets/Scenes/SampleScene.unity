@@ -666,7 +666,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -695,12 +695,12 @@ MonoBehaviour:
   speedDecay: 0.7
   rb: {fileID: 715183115}
   jumps: 0
-  jumpPower: 20
+  jumpPower: 12
   minFallSpeed: -2
   dashPower: 20
   whatDirection: 1
   isDashing: 0
-  DashTime: 0.1
+  DashTime: 0.15
   NumberOfDashes: 0
   maxHealth: 100
   health: 0
