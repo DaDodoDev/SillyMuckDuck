@@ -30,7 +30,7 @@ public class weaponScript : MonoBehaviour
         timeBTWAttacksNow -= Time.deltaTime;
         timeBTWSecondsAttacksNow -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && timeBTWAttacksNow < 0) { firstAttack(); }
+        //if (Input.GetMouseButtonDown(0) && timeBTWAttacksNow < 0) { firstAttack(); }
     }
 
     void firstAttack()
