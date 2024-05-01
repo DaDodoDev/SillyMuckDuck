@@ -18,7 +18,8 @@ public class And : MonoBehaviour
     public float DashTime;
     float dashTimeNow;
     public int NumberOfDashes;
-
+    public float DashCooldown;
+    public bool DashReady;
     public int maxHealth;
     public int health;
 
@@ -52,11 +53,16 @@ public class And : MonoBehaviour
             transform.localScale = new Vector2(-1 * whatDirection, 1);
             if (Input.GetKeyDown(KeyCode.LeftShift) && NumberOfDashes > 0)
             {
-                isDashing = true;
-                dashTimeNow = DashTime;
-                rb.gravityScale = 0;
-                rb.velocity = new Vector2(dashPower * whatDirection * -1, 0);
-                NumberOfDashes--;
+                if (DashReady == true)
+                {
+                    isDashing = true;
+                    dashTimeNow = DashTime;
+                    rb.gravityScale = 0;
+                    rb.velocity = new Vector2(dashPower * whatDirection * -1, 0);
+                    NumberOfDashes--;
+                    DashReady = false;
+                    Invoke(nameof(dashCooldown), DashCooldown);
+                }
             }
         }
         else { dashTimeNow -= Time.deltaTime; if (dashTimeNow < 0) { isDashing = false; }  }
@@ -80,6 +86,10 @@ public class And : MonoBehaviour
     {
         health -= damage;
         healthBar.GetComponent<healthBarScript>().SetHealth(health);
+    }
+    private void dashCooldown()
+    {
+        DashReady = true;
     }
 
     
