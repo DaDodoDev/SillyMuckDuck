@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class And : MonoBehaviour
@@ -22,8 +23,9 @@ public class And : MonoBehaviour
     public bool DashReady;
     public int maxHealth;
     public int health;
+    public float playerSpeed;
 
-
+    public Animator duckanimator;
     public GameObject healthBar;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class And : MonoBehaviour
     {
         if (!isDashing)
         {
+            duckanimator.SetFloat("Speed", Mathf.Abs(speedNow));
             speedNow += Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
             rb.velocity = new Vector2(speedNow, rb.velocity.y);
 
